@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Canvas — Smart Image Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div class="shell">
+        <aside>
+            <div class="brand"><span class="mark">✦</span><span>canvas<span class="dot">.</span></span></div>
+            <nav><a class="active"><span>⌘</span> Create</a><a><span>▦</span> Gallery</a><a><span>◒</span> Usage</a>
+            </nav>
+            <div class="side-bottom">
+                <div class="plan"><small>YOUR PLAN</small><strong>Creative studio</strong>
+                    <div class="bar"><i></i></div><small>18 / 50 generations</small>
+                </div>
+                <div class="avatar">AS <span>Alex Smith</span><b>⌄</b></div>
+            </div>
+        </aside>
+        <main>
+            <header>
+                <div>
+                    <p class="eyebrow">IMAGE STUDIO / NEW PROJECT</p>
+                    <h1>Bring an idea to life<span class="dot">.</span></h1>
+                    <p class="sub">Describe a visual and explore it across different formats.</p>
+                </div><button class="ghost" id="clearBtn">↻ <span>New canvas</span></button>
+            </header>
+            <section class="workspace">
+                <div class="controls card">
+                    <div class="section-title"><span class="step">01</span>
+                        <div>
+                            <h2>Start with a theme</h2>
+                            <p>What do you want to create?</p>
+                        </div>
+                    </div><textarea id="prompt"
+                        placeholder="e.g. A quiet cyberpunk cityscape after rainfall...">A quiet cyberpunk cityscape after rainfall, glowing signs reflected in the streets</textarea>
+                    <div class="suggestions"><button data-prompt="A quiet cyberpunk cityscape after rainfall">Cyberpunk
+                            cityscape</button><button data-prompt="Minimal botanical still life in warm light">Botanical
+                            still life</button><button data-prompt="A surreal desert with floating architecture">Surreal
+                            architecture</button></div>
+                    <div class="section-title second"><span class="step">02</span>
+                        <div>
+                            <h2>Choose your variations</h2>
+                            <p>Compare formats side by side.</p>
+                        </div>
+                    </div>
+                    <div class="size-grid"><label class="size selected"><input type="checkbox" value="square"
+                                checked><span class="ratio sq"></span><b>Square</b><small>1:1 · 1024 ×
+                                1024</small></label><label class="size selected"><input type="checkbox"
+                                value="landscape" checked><span class="ratio land"></span><b>Landscape</b><small>3:2 ·
+                                1536 × 1024</small></label><label class="size"><input type="checkbox"
+                                value="portrait"><span class="ratio port"></span><b>Portrait</b><small>2:3 · 1024 ×
+                                1536</small></label></div>
+                    <div class="options"><label>MODEL<select id="model">
+                                <option>gpt-image-1</option>
+                                <option>dall-e-3</option>
+                            </select></label><label>QUALITY<select id="quality">
+                                <option value="standard">Standard</option>
+                                <option value="hd">HD</option>
+                            </select></label></div><button class="generate" id="generate">Generate variations
+                        <span>→</span></button>
+                    <p class="hint">⌁ Images are generated with a prompt enhancement layer</p>
+                </div>
+                <div class="results">
+                    <div class="results-head">
+                        <div>
+                            <p class="eyebrow">03 / YOUR EXPLORATIONS</p>
+                            <h2>Generated variations <span id="count">0</span></h2>
+                        </div><button class="icon-btn" id="downloadAll">⇩</button>
+                    </div>
+                    <div id="gallery" class="gallery empty">
+                        <div class="empty-state">
+                            <div class="spark">✦</div>
+                            <h3>Your canvas is waiting</h3>
+                            <p>Choose a theme and generate a few variations to see them here.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div id="toast"></div>
+    <script src="/app.js"></script>
+</body>
+
+</html>
